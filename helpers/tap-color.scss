@@ -1,0 +1,3 @@
+@mixin no-tap($color: transparent) {
+  -webkit-tap-highlight-color: $color;
+}
