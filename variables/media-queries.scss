@@ -52,25 +52,25 @@ $desk_stack: $desk + 1px;
   }
 }
 
-@mixin from($min_width) {
+@mixin mq_from($min_width) {
   @media screen and (min-width: $min_width) {
     @content;
   }
 }
 
-@mixin to($max_width) {
+@mixin mq_to($max_width) {
   @media screen and (max-width: $max_width) {
     @content;
   }
 }
 
-@mixin from-to($min_width, $max_width) {
+@mixin mq_from_to($min_width, $max_width) {
   @media screen and (min-width: $min_width) and (max-width: $max_width) {
     @content;
   }
 }
 
-@mixin hover {
+@mixin mq_hover {
   @media not all and (hover: none) and (pointer: coarse) {
     &:hover {
       @content;
@@ -84,7 +84,7 @@ $desk_stack: $desk + 1px;
   }
 }
 
-@mixin animation($selector) {
+@mixin mq_animation($selector) {
   @media (prefers-reduced-motion: reduce) {
     #{$sector} {
       animation: none;
