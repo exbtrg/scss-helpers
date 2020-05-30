@@ -1,76 +1,40 @@
 //break-points
-$palm: 320px;
-$hands: 600px;
-$hands_wide: 850px;
-$lap: 1200px;
-$desk: 1600px;
-$desk_large: 1920px;
+$palm-max: 320px;
+$hands-max: 600px;
+$handsWide-max: 850px;
+$lap-max: 1200px;
+$desk-max: 1600px;
+$deskLarge-max: 1920px;
 
 //stack-break-points
-$palm_stack: $palm + 1px;
-$hands_stack: $hands + 1px;
-$hands_wide_stack: $hands_wide + 1px;
-$lap_stack: $lap + 1px;
-$desk_stack: $desk + 1px;
+$palm-min: $palm-max + 1px;
+$hands-min: $hands-max + 1px;
+$handsWide-min: $handsWide-max + 1px;
+$lap-min: $lap-max + 1px;
+$desk-min: $desk-max + 1px;
 
 //custom-break-points
 
 //media-queries
-@mixin mq_palm() {
-  @media screen and (max-width: $palm) {
+@mixin mq-from($minWidth) {
+  @media screen and (min-width: $minWidth) {
     @content;
   }
 }
 
-@mixin mq_hands() {
-  @media screen and (min-width: $palm_stack) and (max-width: $hands) {
+@mixin mq-to($maxWidth) {
+  @media screen and (max-width: $maxWidth) {
     @content;
   }
 }
 
-@mixin mq_hands_wide() {
-  @media screen and (min-width: $hands_stack) and (max-width: $hands_wide) {
+@mixin mq-from-to($minWidth, $maxWidth) {
+  @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
     @content;
   }
 }
 
-@mixin mq_lap() {
-  @media screen and (min-width: $hands_wide_stack) and (max-width: $lap) {
-    @content;
-  }
-}
-
-@mixin mq_desk() {
-  @media screen and (min-width: $lap_stack) and (max-width: $desk) {
-    @content;
-  }
-}
-
-@mixin mq_desk_large() {
-  @media screen and (min-width: $desk_stack) {
-    @content;
-  }
-}
-
-@mixin mq_from($min_width) {
-  @media screen and (min-width: $min_width) {
-    @content;
-  }
-}
-
-@mixin mq_to($max_width) {
-  @media screen and (max-width: $max_width) {
-    @content;
-  }
-}
-
-@mixin mq_from_to($min_width, $max_width) {
-  @media screen and (min-width: $min_width) and (max-width: $max_width) {
-    @content;
-  }
-}
-
-@mixin mq_hover {
+@mixin mq-hover {
   @media not all and (hover: none) and (pointer: coarse) {
     &:hover {
       @content;
@@ -84,17 +48,13 @@ $desk_stack: $desk + 1px;
   }
 }
 
-@mixin mq_animation($selector) {
+@mixin mq-animation() {
   @media (prefers-reduced-motion: reduce) {
-    #{$sector} {
-      animation: none;
-      transition: none;
-    }
+    animation: none;
+    transition: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    #{$sector} {
-      @content;
-    }
+    @content;
   }
 }

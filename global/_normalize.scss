@@ -1,9 +1,13 @@
 // normalize
 html {
-  font-size: 16px;
+  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  min-width: 32rem;
 }
 
 main {
@@ -93,6 +97,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  background-color: transparent;
 }
 
 button::-moz-focus-inner,

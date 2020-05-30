@@ -2,7 +2,7 @@
 https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
 */
 
-@mixin input-no-bg() {
+@mixin autofill() {
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,

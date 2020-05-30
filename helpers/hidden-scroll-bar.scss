@@ -1,4 +1,4 @@
-@mixin no-scroll-bar() {
+@mixin hidden-scroll-bar() {
   scrollbar-face-color: transparent;
   scrollbar-track-color: transparent;
   &::-webkit-scrollbar {
